@@ -1,0 +1,9 @@
+
+PAP/nbproject/private
+tmp/
+tmp_*
+*.old
+*.old/
+/PAP/build/
+/PAP.old/nbproject/private/
+/PAPProj/build/

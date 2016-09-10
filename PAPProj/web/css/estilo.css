@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+}
+
+.navbar{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #09f;
+}
+.navbar-in {
+    width: 98%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.navbar-out {
+    
+}
