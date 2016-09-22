@@ -7,3 +7,6 @@ tmp_*
 /PAP/build/
 /PAP.old/nbproject/private/
 /PAPProj/build/
+/PAPProj/dist/
+/PAPProjWeb/nbproject/private/
+/PAPProjJPA/nbproject/private/
