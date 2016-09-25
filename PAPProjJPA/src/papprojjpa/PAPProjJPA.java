@@ -6,8 +6,10 @@
 package papprojjpa;
 
 import br.com.euemais3.dao.FilmeDAO;
+import br.com.euemais3.dao.TipoContaDAO;
 import br.com.euemais3.dao.UsuarioDAO;
 import br.com.euemais3.model.Filme;
+import br.com.euemais3.model.TipoConta;
 import br.com.euemais3.model.Usuario;
 import java.util.Date;
 
@@ -24,16 +26,20 @@ public class PAPProjJPA {
         try {
             UsuarioDAO daoUsuario = new UsuarioDAO();
             FilmeDAO daoFilme = new FilmeDAO();
+            TipoContaDAO daoTipoContaDAO = new TipoContaDAO();
             
             Usuario usuario = new Usuario(null, "User1s", "user", "1", new Date("10/10/2010"));
             Filme filme = new Filme(null, "Gravidade", "Otomar no cu", new Date("10/06/2013"), "Dirigid puta que pariu", "Não sei", new Date("01/01/01"), "Ação", "sadsd", "EUA", "English", "Colorido", "Dolby");
+            TipoConta tipoConta = new TipoConta(null, "ADM-000", "Conta de administração");
             
-            //usuario = daoUsuario.salvar(usuario);            
+            usuario = daoUsuario.salvar(usuario);            
             filme = daoFilme.salvar(filme);
+            tipoConta = daoTipoContaDAO.salvar(tipoConta);
 
             
             System.out.println("ID do usuario salvo: " + usuario.getId());
             System.out.println("ID do filme salvo: " + filme.getId());
+            System.out.println("ID do tipo de conta salvo: " + tipoConta.getId());
             
 
             

@@ -36,7 +36,7 @@ public class FilmeDAO extends DAOBase{
             entityManager.close();
         }
     }
-
+    
     public Filme consultarPorId(Long id) {
         EntityManager entityManager = getEntityManager();
         Filme usuario = null;
