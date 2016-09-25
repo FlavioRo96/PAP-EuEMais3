@@ -25,9 +25,10 @@ public class PAPProjJPA {
             EnderecoUsuarioDAO daoEnderecoUsuario = new EnderecoUsuarioDAO();
             FilmeDAO daoFilme = new FilmeDAO();
             FornecedorDAO daoFornecedor = new FornecedorDAO();
-            EnderecoFornecedorDAO daoeEnderecoFornecedor = new EnderecoFornecedorDAO();
-            SalaDAO daosSala = new SalaDAO();
-            
+            EnderecoFornecedorDAO daoEnderecoFornecedor = new EnderecoFornecedorDAO();
+            SalaDAO daoSala = new SalaDAO();
+            SessaoDAO daoSessao = new SessaoDAO();
+                    
             
             TipoConta tipoConta = new TipoConta(null, "ADM-000", "Conta de administração");
             Usuario usuario = new Usuario(null, "User1", "user", "1", new Date("10/10/2010"), tipoConta);
@@ -36,6 +37,7 @@ public class PAPProjJPA {
             Fornecedor fornecedor = new Fornecedor(null, "Cinemark", "11 4375-8548");
             EnderecoFornecedor enderecoFornecedor = new EnderecoFornecedor(null, fornecedor, "Rua Jurubatuba", "52145", "Centro", null, "09886000", "SP", "São Bernardo do Campo");
             Sala sala = new Sala(null, "Sala 10", fornecedor);
+            Sessao sessao = new Sessao(null, filme, sala, new Date("10/10/2016"), 25.2);
             
             
             tipoConta = daoTipoConta.salvar(tipoConta);
@@ -43,8 +45,9 @@ public class PAPProjJPA {
             enderecoUsuario = daoEnderecoUsuario.salvar(enderecoUsuario);
             filme = daoFilme.salvar(filme);
             fornecedor = daoFornecedor.salvar(fornecedor);
-            enderecoFornecedor = daoeEnderecoFornecedor.salvar(enderecoFornecedor);
-            sala = daosSala.salvar(sala);
+            enderecoFornecedor = daoEnderecoFornecedor.salvar(enderecoFornecedor);
+            sala = daoSala.salvar(sala);
+            sessao = daoSessao.salvar(sessao);
             
             
             System.out.println("ID do tipo de conta salvo: " + tipoConta.getId());
@@ -54,6 +57,8 @@ public class PAPProjJPA {
             System.out.println("ID do fornecedor salvo: " + fornecedor.getId());
             System.out.println("ID do enderedo do fornecedor salvo: " + enderecoFornecedor.getId());
             System.out.println("ID da sala salvo: " + sala.getId());
+            System.out.println("ID da sessão salvo: " + sessao.getId());
+            
             
 
             /*

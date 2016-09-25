@@ -5,6 +5,7 @@ drop sequence filme_seq;
 drop sequence fornecedor_seq;
 drop sequence enderecofornecedor_seq;
 drop sequence sala_seq;
+drop sequence sessao_seq;
 drop table tipoconta cascade constraint;
 drop table enderecousuario cascade constraint;
 drop table usuario cascade constraint;
@@ -12,6 +13,7 @@ drop table filme cascade constraint;
 drop table fornecedor cascade constraint;
 drop table enderecofornecedor cascade constraint;
 drop table sala cascade constraint;
+drop table sessao cascade constraint;
 
 
 create sequence tipoconta_seq increment by 1
@@ -28,15 +30,17 @@ create sequence enderecofornecedor_seq increment by 1
     start with 1 nocache nocycle;
 create sequence sala_seq increment by 1
     start with 1 nocache nocycle;
+create sequence sessao_seq increment by 1
+    start with 1 nocache nocycle;
 
 create table tipoconta (
-    id number(5) primary key not null,
+    id number(5) primary key,
     tipoConta varchar2(7) unique not null,
     descricao varchar2(60)
 );
 
 create table usuario (
-    id number(5) primary key not null,
+    id number(5) primary key,
     usuario varchar2(20) unique not null,
     nome varchar2(20) not null,
     sobrenome varchar(50),
@@ -48,7 +52,7 @@ create table usuario (
 );
 
 create table enderecousuario (
-    id number(5) primary key not null,
+    id number(5) primary key,
     idUsuario number(5) not null,
     rua varchar2(40) not null,
     numero varchar2(6) not null,
@@ -64,7 +68,7 @@ create table enderecousuario (
 );
 
 create table filme (
-    id number(5) primary key not null,
+    id number(5) primary key,
     nome varchar2(60) not null,
     sinopse varchar2(3000) not null,
     anoProducao date,
@@ -80,13 +84,13 @@ create table filme (
 );
 
 create table fornecedor (
-    id number(5) primary key not null,
+    id number(5) primary key,
     nome varchar2(30) not null,
     telefone varchar2(13)
 );
 
 create table enderecofornecedor (
-    id number(5) primary key not null,
+    id number(5) primary key,
     idFornecedor number(5) not null,
     rua varchar2(40) not null,
     numero varchar2(6) not null,
@@ -101,10 +105,23 @@ create table enderecofornecedor (
 );
 
 create table sala (
-    id number(5) primary key not null,
+    id number(5) primary key,
     nome varchar2(7) not null,
     idFornecedor number(5) not null,
 
     constraint fkSalaFornecedor
         foreign key(idFornecedor) references fornecedor(id)
+);
+
+create table sessao (
+    id number(5) primary key,
+    idFilme number(5) not null,
+    idSala number(5) not null,
+    valor number(3) not null,
+    data date not null,
+    
+    constraint fkSessaoFilme
+        foreign key(idFilme) references filme(id),
+    constraint fkSessaoSala
+        foreign key(idSala) references sala(id)
 );

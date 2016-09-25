@@ -12,20 +12,25 @@ public class Sessao implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SESSAO_SEQ")
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idFilme")
     private Filme filme;
-    @ManyToOne
-    private Fornecedor fornecedor;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idSala")
+    private Sala sala;
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date data;
+    @Column(nullable = false, precision = 3, scale = 2)
     private Double valor;
 
     public Sessao() {
     }
 
-    public Sessao(Long id, Filme filme, Fornecedor fornecedor, Date data, Double valor) {
+    public Sessao(Long id, Filme filme, Sala sala, Date data, Double valor) {
         this.id = id;
         this.filme = filme;
-        this.fornecedor = fornecedor;
+        this.sala = sala;
         this.data = data;
         this.valor = valor;
     }
@@ -33,14 +38,14 @@ public class Sessao implements Serializable{
     
     public Long getId() {return id;}
     public Filme getFilme() {return filme;}
-    public Fornecedor getFornecedor() {return fornecedor;}
+    public Sala getSala() {return sala;}
     public Date getData() {return data;}
     public Double getValor() {return valor;}
     
     
     public void setId(Long id) {this.id = id;}
     public void setFilme(Filme filme) {this.filme = filme;}
-    public void setFornecedor(Fornecedor fornecedor) {this.fornecedor = fornecedor;}
+    public void setSala(Sala sala) {this.sala = sala;}
     public void setData(Date data) {this.data = data;}
     public void setValor(Double valor) {this.valor = valor;}
 }
