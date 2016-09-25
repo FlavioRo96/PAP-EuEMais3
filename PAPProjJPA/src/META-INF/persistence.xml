@@ -7,6 +7,7 @@
     <class>br.com.euemais3.model.TipoConta</class>
     <class>br.com.euemais3.model.Usuario</class>
     <class>br.com.euemais3.model.EnderecoUsuario</class>
+    <class>br.com.euemais3.model.EnderecoFornecedor</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="pap"/>

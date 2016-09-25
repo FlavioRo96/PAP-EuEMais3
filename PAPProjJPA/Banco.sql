@@ -2,10 +2,14 @@ drop sequence tipoconta_seq;
 drop sequence enderecousuario_seq;
 drop sequence usuario_seq;
 drop sequence filme_seq;
+drop sequence fornecedor_seq;
+drop sequence enderecofornecedor_seq;
 drop table tipoconta cascade constraint;
 drop table enderecousuario cascade constraint;
 drop table usuario cascade constraint;
 drop table filme cascade constraint;
+drop table fornecedor cascade constraint;
+drop table enderecofornecedor cascade constraint;
 
 
 create sequence tipoconta_seq increment by 1
@@ -15,6 +19,10 @@ create sequence enderecousuario_seq increment by 1
 create sequence usuario_seq increment by 1
     start with 1 nocache nocycle;
 create sequence filme_seq increment by 1
+    start with 1 nocache nocycle;
+create sequence fornecedor_seq increment by 1
+    start with 1 nocache nocycle;
+create sequence enderecofornecedor_seq increment by 1
     start with 1 nocache nocycle;
 
 create table tipoconta (
@@ -67,7 +75,23 @@ create table filme (
     formatoAudio varchar2(50)
 );
 
+create table fornecedor (
+    id number(5) primary key not null,
+    nome varchar2(30) not null,
+    telefone varchar2(13)
+);
 
+create table enderecofornecedor (
+    id number(5) primary key not null,
+    idFornecedor number(5) not null,
+    rua varchar2(40) not null,
+    numero varchar2(6) not null,
+    bairro varchar2(25) not null,
+    complemento varchar2(100),
+    cep varchar2(8) not null,
+    uf varchar2(2) not null,
+    cidade varchar2(40) not null,
 
-
-
+    constraint fkFornecedor
+        foreign key(idFornecedor) references fornecedor(id)
+);

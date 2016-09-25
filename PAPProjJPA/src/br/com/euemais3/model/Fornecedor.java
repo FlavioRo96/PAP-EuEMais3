@@ -1,6 +1,7 @@
 package br.com.euemais3.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -11,9 +12,9 @@ public class Fornecedor implements Serializable{
     public Fornecedor() {
     }
 
-    public Fornecedor(Long id, String fornecedor, String telefone) {
+    public Fornecedor(Long id, String nome, String telefone) {
         this.id = id;
-        this.fornecedor = fornecedor;
+        this.nome = nome;
         this.telefone = telefone;
     }
     
@@ -22,16 +23,21 @@ public class Fornecedor implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FORNECEDOR_SEQ")
     private Long id;
     @Column(nullable = false)
-    private String fornecedor;
+    private String nome;
+    @Column(nullable = false)
     private String telefone;
+    @OneToMany(mappedBy = "fornecedor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<EnderecoFornecedor> enderecoFornecedor;
 
 
     public Long getId() {return id;}
-    public String getFornecedor() {return fornecedor;}
+    public String getNome() {return nome;}
     public String getTelefone() {return telefone;}
+    public List<EnderecoFornecedor> getEnderecoFornecedor() {return enderecoFornecedor;}
     
     
     public void setId(Long id) {this.id = id;}
-    public void setFornecedor(String fornecedor) {this.fornecedor = fornecedor;}
+    public void setNome(String nome) {this.nome = nome;}
     public void setTelefone(String telefone) {this.telefone = telefone;}
+    public void setEnderecoFornecedor(List<EnderecoFornecedor> enderecoFornecedor) {this.enderecoFornecedor = enderecoFornecedor;}
 }

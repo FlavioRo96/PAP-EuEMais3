@@ -5,14 +5,8 @@
  */
 package papprojjpa;
 
-import br.com.euemais3.dao.EnderecoUsuarioDAO;
-import br.com.euemais3.dao.FilmeDAO;
-import br.com.euemais3.dao.TipoContaDAO;
-import br.com.euemais3.dao.UsuarioDAO;
-import br.com.euemais3.model.EnderecoUsuario;
-import br.com.euemais3.model.Filme;
-import br.com.euemais3.model.TipoConta;
-import br.com.euemais3.model.Usuario;
+import br.com.euemais3.dao.*;
+import br.com.euemais3.model.*;
 import java.util.Date;
 
 /**
@@ -30,24 +24,32 @@ public class PAPProjJPA {
             UsuarioDAO daoUsuario = new UsuarioDAO();
             EnderecoUsuarioDAO daoEnderecoUsuario = new EnderecoUsuarioDAO();
             FilmeDAO daoFilme = new FilmeDAO();
+            FornecedorDAO daoFornecedor = new FornecedorDAO();
+            EnderecoFornecedorDAO daoeEnderecoFornecedor = new EnderecoFornecedorDAO();
             
             
             TipoConta tipoConta = new TipoConta(null, "ADM-000", "Conta de administração");
             Usuario usuario = new Usuario(null, "User1", "user", "1", new Date("10/10/2010"), tipoConta);
             EnderecoUsuario enderecoUsuario = new EnderecoUsuario(null, usuario, "Rua Jão", "15A","Jardim foguete", "", "0985480", "SP", "São Benedito da Cruz");
             Filme filme = new Filme(null, "Gravidade", "Otomar no cu", new Date("10/06/2013"), "Dirigid puta que pariu", "Não sei", new Date("01/01/01"), "Ação", "sadsd", "EUA", "English", "Colorido", "Dolby");
-                        
+            Fornecedor fornecedor = new Fornecedor(null, "Cinemark", "11 4375-8548");
+            EnderecoFornecedor enderecoFornecedor = new EnderecoFornecedor(null, fornecedor, "Rua Jurubatuba", "52145", "Centro", null, "09886000", "SP", "São Bernardo do Campo");
+            
             
             tipoConta = daoTipoConta.salvar(tipoConta);
             usuario = daoUsuario.salvar(usuario);
             enderecoUsuario = daoEnderecoUsuario.salvar(enderecoUsuario);
             filme = daoFilme.salvar(filme);
-
+            fornecedor = daoFornecedor.salvar(fornecedor);
+            enderecoFornecedor = daoeEnderecoFornecedor.salvar(enderecoFornecedor);
+            
             
             System.out.println("ID do tipo de conta salvo: " + tipoConta.getId());
             System.out.println("ID do usuario salvo: " + usuario.getId());
             System.out.println("ID do endereço do usuario salvo: " + enderecoUsuario.getId());
             System.out.println("ID do filme salvo: " + filme.getId());
+            System.out.println("ID do fornecedor salvo: " + fornecedor.getId());
+            System.out.println("ID do enderedo do fornecedor salvo: " + enderecoFornecedor.getId());
             
 
             /*

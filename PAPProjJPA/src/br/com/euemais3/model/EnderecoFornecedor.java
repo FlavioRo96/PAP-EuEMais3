@@ -3,6 +3,7 @@ package br.com.euemais3.model;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name = "ENDERECOFORNECEDOR_SEQ", sequenceName = "ENDERECOFORNECEDOR_SEQ", initialValue = 1, allocationSize = 1)
 public class EnderecoFornecedor extends Endereco{
     private static final long serialVersionUID = 7937681050642595502L;
     
@@ -55,5 +56,5 @@ public class EnderecoFornecedor extends Endereco{
     @Override
     public String getRua() {return super.getRua();}
     
-    public void setUsuario(Fornecedor fornecedor) {this.fornecedor = fornecedor;}
+    public void setFornecedor(Fornecedor fornecedor) {this.fornecedor = fornecedor;}
 }
