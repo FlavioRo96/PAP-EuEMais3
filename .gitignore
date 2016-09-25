@@ -4,9 +4,9 @@ tmp/
 tmp_*
 *.old
 *.old/
-/PAP/build/
 /PAP.old/nbproject/private/
-/PAPProj/build/
-/PAPProj/dist/
 /PAPProjWeb/nbproject/private/
 /PAPProjJPA/nbproject/private/
+/PAPProjJPA/build/
+/PAPProjWeb/build/
+/PAPProj/build/
