@@ -33,12 +33,12 @@ create sequence sala_seq increment by 1
 create sequence sessao_seq increment by 1
     start with 1 nocache nocycle;
 
+
 create table tipoconta (
     id number(5) primary key,
     tipoConta varchar2(7) unique not null,
     descricao varchar2(60)
 );
-
 create table usuario (
     id number(5) primary key,
     usuario varchar2(20) unique not null,
@@ -50,7 +50,6 @@ create table usuario (
     constraint fkUsuarioTipoConta
         foreign key(idTipoConta) references tipoconta(id)
 );
-
 create table enderecousuario (
     id number(5) primary key,
     idUsuario number(5) not null,
@@ -64,9 +63,7 @@ create table enderecousuario (
 
     constraint fkEnderecoUsuarioUsuario
         foreign key(idUsuario) references usuario(id)
-    
 );
-
 create table filme (
     id number(5) primary key,
     nome varchar2(60) not null,
@@ -82,13 +79,11 @@ create table filme (
     cor varchar2(15),
     formatoAudio varchar2(50)
 );
-
 create table fornecedor (
     id number(5) primary key,
     nome varchar2(30) not null,
     telefone varchar2(13)
 );
-
 create table enderecofornecedor (
     id number(5) primary key,
     idFornecedor number(5) not null,
@@ -103,7 +98,6 @@ create table enderecofornecedor (
     constraint fkEnderecoFornecedorFornecedor
         foreign key(idFornecedor) references fornecedor(id)
 );
-
 create table sala (
     id number(5) primary key,
     nome varchar2(7) not null,
@@ -112,12 +106,11 @@ create table sala (
     constraint fkSalaFornecedor
         foreign key(idFornecedor) references fornecedor(id)
 );
-
 create table sessao (
     id number(5) primary key,
     idFilme number(5) not null,
     idSala number(5) not null,
-    valor number(3) not null,
+    valor number(3.2) not null,
     data date not null,
     
     constraint fkSessaoFilme
