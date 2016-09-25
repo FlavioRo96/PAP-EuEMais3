@@ -12,12 +12,13 @@ public class Usuario implements Serializable{
     public Usuario() {
     }
 
-    public Usuario(Long id, String usuario, String nome, String sobrenome, Date dataNasc) {
+    public Usuario(Long id, String usuario, String nome, String sobrenome, Date dataNasc, TipoConta tipoDeConta) {
         this.id = id;
         this.usuario = usuario;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.dataNasc = dataNasc;
+        this.tipoDeConta = tipoDeConta;
     }
     
     
@@ -32,15 +33,16 @@ public class Usuario implements Serializable{
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataNasc;
-//    @Column(nullable = false)
-//    private TipoConta tipoDeConta;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idTipoConta")
+    private TipoConta tipoDeConta;
 
     public Long getId() {return id;}
     public String getUsuario() {return usuario;}
     public String getNome() {return nome;}
     public String getSobrenome() {return sobrenome;}
     public Date getDataNasc() {return dataNasc;}
-//    public TipoConta getTipoDeConta() {return tipoDeConta;}
+    public TipoConta getTipoDeConta() {return tipoDeConta;}
 
     
     public void setId(Long id) {this.id = id;}
@@ -48,5 +50,5 @@ public class Usuario implements Serializable{
     public void setNome(String nome) {this.nome = nome;}
     public void setSobrenome(String sobrenome) {this.sobrenome = sobrenome;}
     public void setDataNasc(Date dataNasc) {this.dataNasc = dataNasc;}
-//    public void setTipoDeConta(TipoConta tipoDeConta) {this.tipoDeConta = tipoDeConta;}
+    public void setTipoDeConta(TipoConta tipoDeConta) {this.tipoDeConta = tipoDeConta;}
 }
