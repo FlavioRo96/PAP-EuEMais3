@@ -26,6 +26,7 @@ public class PAPProjJPA {
             FilmeDAO daoFilme = new FilmeDAO();
             FornecedorDAO daoFornecedor = new FornecedorDAO();
             EnderecoFornecedorDAO daoeEnderecoFornecedor = new EnderecoFornecedorDAO();
+            SalaDAO daosSala = new SalaDAO();
             
             
             TipoConta tipoConta = new TipoConta(null, "ADM-000", "Conta de administração");
@@ -34,6 +35,7 @@ public class PAPProjJPA {
             Filme filme = new Filme(null, "Gravidade", "Otomar no cu", new Date("10/06/2013"), "Dirigid puta que pariu", "Não sei", new Date("01/01/01"), "Ação", "sadsd", "EUA", "English", "Colorido", "Dolby");
             Fornecedor fornecedor = new Fornecedor(null, "Cinemark", "11 4375-8548");
             EnderecoFornecedor enderecoFornecedor = new EnderecoFornecedor(null, fornecedor, "Rua Jurubatuba", "52145", "Centro", null, "09886000", "SP", "São Bernardo do Campo");
+            Sala sala = new Sala(null, "Sala 10", fornecedor);
             
             
             tipoConta = daoTipoConta.salvar(tipoConta);
@@ -42,6 +44,7 @@ public class PAPProjJPA {
             filme = daoFilme.salvar(filme);
             fornecedor = daoFornecedor.salvar(fornecedor);
             enderecoFornecedor = daoeEnderecoFornecedor.salvar(enderecoFornecedor);
+            sala = daosSala.salvar(sala);
             
             
             System.out.println("ID do tipo de conta salvo: " + tipoConta.getId());
@@ -50,6 +53,7 @@ public class PAPProjJPA {
             System.out.println("ID do filme salvo: " + filme.getId());
             System.out.println("ID do fornecedor salvo: " + fornecedor.getId());
             System.out.println("ID do enderedo do fornecedor salvo: " + enderecoFornecedor.getId());
+            System.out.println("ID da sala salvo: " + sala.getId());
             
 
             /*

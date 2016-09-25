@@ -4,12 +4,14 @@ drop sequence usuario_seq;
 drop sequence filme_seq;
 drop sequence fornecedor_seq;
 drop sequence enderecofornecedor_seq;
+drop sequence sala_seq;
 drop table tipoconta cascade constraint;
 drop table enderecousuario cascade constraint;
 drop table usuario cascade constraint;
 drop table filme cascade constraint;
 drop table fornecedor cascade constraint;
 drop table enderecofornecedor cascade constraint;
+drop table sala cascade constraint;
 
 
 create sequence tipoconta_seq increment by 1
@@ -23,6 +25,8 @@ create sequence filme_seq increment by 1
 create sequence fornecedor_seq increment by 1
     start with 1 nocache nocycle;
 create sequence enderecofornecedor_seq increment by 1
+    start with 1 nocache nocycle;
+create sequence sala_seq increment by 1
     start with 1 nocache nocycle;
 
 create table tipoconta (
@@ -39,7 +43,7 @@ create table usuario (
     dataNasc date not null,
     idTipoConta number(5) not null,
     
-    constraint fkTipoConta
+    constraint fkUsuarioTipoConta
         foreign key(idTipoConta) references tipoconta(id)
 );
 
@@ -54,7 +58,7 @@ create table enderecousuario (
     uf varchar2(2) not null,
     cidade varchar2(40) not null,
 
-    constraint fkUsuario
+    constraint fkEnderecoUsuarioUsuario
         foreign key(idUsuario) references usuario(id)
     
 );
@@ -92,6 +96,15 @@ create table enderecofornecedor (
     uf varchar2(2) not null,
     cidade varchar2(40) not null,
 
-    constraint fkFornecedor
+    constraint fkEnderecoFornecedorFornecedor
+        foreign key(idFornecedor) references fornecedor(id)
+);
+
+create table sala (
+    id number(5) primary key not null,
+    nome varchar2(7) not null,
+    idFornecedor number(5) not null,
+
+    constraint fkSalaFornecedor
         foreign key(idFornecedor) references fornecedor(id)
 );
