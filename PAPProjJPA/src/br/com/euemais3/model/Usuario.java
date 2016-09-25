@@ -2,6 +2,7 @@ package br.com.euemais3.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -33,9 +34,11 @@ public class Usuario implements Serializable{
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataNasc;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idTipoConta")
     private TipoConta tipoDeConta;
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<EnderecoUsuario> enderecoUsuario;
 
     public Long getId() {return id;}
     public String getUsuario() {return usuario;}
@@ -43,6 +46,7 @@ public class Usuario implements Serializable{
     public String getSobrenome() {return sobrenome;}
     public Date getDataNasc() {return dataNasc;}
     public TipoConta getTipoDeConta() {return tipoDeConta;}
+    public List<EnderecoUsuario> getEnderecoUsuario() {return enderecoUsuario;}
 
     
     public void setId(Long id) {this.id = id;}
@@ -51,4 +55,5 @@ public class Usuario implements Serializable{
     public void setSobrenome(String sobrenome) {this.sobrenome = sobrenome;}
     public void setDataNasc(Date dataNasc) {this.dataNasc = dataNasc;}
     public void setTipoDeConta(TipoConta tipoDeConta) {this.tipoDeConta = tipoDeConta;}
+    public void setEnderecoUsuario(List<EnderecoUsuario> enderecoUsuario) {this.enderecoUsuario = enderecoUsuario;}
 }

@@ -5,14 +5,18 @@ import javax.persistence.*;
 @Entity
 @SequenceGenerator(name = "ENDERECOUSUARIO_SEQ", sequenceName = "ENDERECOUSUARIO_SEQ", initialValue = 1, allocationSize = 1)
 public class EnderecoUsuario extends Endereco{
+    private static final long serialVersionUID = -8403841393670819313L;
 
+    private Usuario usuario;
+    
     public EnderecoUsuario() {
     }
 
-    public EnderecoUsuario(Long id, String rua, String numero, String bairro, String complemento, String cep, String uf, String cidade) {
+    public EnderecoUsuario(Long id, Usuario usuario, String rua, String numero, String bairro, String complemento, String cep, String uf, String cidade) {
         super(id, rua, numero, bairro, complemento, cep, uf, cidade);
+        this.usuario = usuario;
     }
-    
+ 
     
 
     @Id
@@ -20,6 +24,10 @@ public class EnderecoUsuario extends Endereco{
     @Override
     public Long getId() {return super.getId();}
     
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idUsuario")
+    public Usuario getUsuario() {return usuario;}    
+      
     @Column(nullable = false)
     @Override
     public String getCidade() {return super.getCidade();}
@@ -46,5 +54,6 @@ public class EnderecoUsuario extends Endereco{
     @Column(nullable = false)
     @Override
     public String getRua() {return super.getRua();}
-
+    
+    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
 }

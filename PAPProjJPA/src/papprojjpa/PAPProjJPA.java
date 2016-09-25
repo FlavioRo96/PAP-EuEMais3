@@ -34,7 +34,7 @@ public class PAPProjJPA {
             
             TipoConta tipoConta = new TipoConta(null, "ADM-000", "Conta de administração");
             Usuario usuario = new Usuario(null, "User1", "user", "1", new Date("10/10/2010"), tipoConta);
-            EnderecoUsuario enderecoUsuario = new EnderecoUsuario(null, "Rua Jão", "15A","Jardim foguete", "", "0985480", "SP", "São Benedito da Cruz");
+            EnderecoUsuario enderecoUsuario = new EnderecoUsuario(null, usuario, "Rua Jão", "15A","Jardim foguete", "", "0985480", "SP", "São Benedito da Cruz");
             Filme filme = new Filme(null, "Gravidade", "Otomar no cu", new Date("10/06/2013"), "Dirigid puta que pariu", "Não sei", new Date("01/01/01"), "Ação", "sadsd", "EUA", "English", "Colorido", "Dolby");
                         
             
@@ -48,13 +48,6 @@ public class PAPProjJPA {
             System.out.println("ID do usuario salvo: " + usuario.getId());
             System.out.println("ID do endereço do usuario salvo: " + enderecoUsuario.getId());
             System.out.println("ID do filme salvo: " + filme.getId());
-            
-            
-            daoFilme.excluir(filme.getId());
-            daoUsuario.excluir(usuario.getId());
-            daoTipoConta.excluir(tipoConta.getId());
-            
-
             
 
             /*
