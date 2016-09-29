@@ -1,13 +1,14 @@
 package br.com.euemais3.bo;
 
-
-
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Entity
 @SequenceGenerator(name = "SESSAO_SEQ", sequenceName = "SESSAO_SEQ", initialValue = 1, allocationSize = 1)
+@NamedQueries({
+    @NamedQuery(name = Sessao.ListQueryName.consultarTodos, query = Sessao.ListQuery.consultarTodos)
+})
 public class Sessao implements Serializable{
     private static final long serialVersionUID = -4055644853155171133L;
 
@@ -50,4 +51,12 @@ public class Sessao implements Serializable{
     public void setSala(Sala sala) {this.sala = sala;}
     public void setData(Date data) {this.data = data;}
     public void setValor(Double valor) {this.valor = valor;}
+    
+    public static abstract class ListQueryName {
+        public static final String consultarTodos = "consultarTodos";
+    }
+    
+    protected static abstract class ListQuery {
+        public static final String consultarTodos = "select s from Sessao s";
+    }
 }

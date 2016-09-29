@@ -1,11 +1,12 @@
 package br.com.euemais3.bo;
 
-
-
 import javax.persistence.*;
 
 @Entity
 @SequenceGenerator(name = "ENDERECOFORNECEDOR_SEQ", sequenceName = "ENDERECOFORNECEDOR_SEQ", initialValue = 1, allocationSize = 1)
+@NamedQueries({
+    @NamedQuery(name = EnderecoFornecedor.ListQueryName.consultarTodos, query = EnderecoFornecedor.ListQuery.consultarTodos)
+})
 public class EnderecoFornecedor extends Endereco{
     private static final long serialVersionUID = 7937681050642595502L;
     
@@ -59,4 +60,12 @@ public class EnderecoFornecedor extends Endereco{
     public String getRua() {return super.getRua();}
     
     public void setFornecedor(Fornecedor fornecedor) {this.fornecedor = fornecedor;}
+    
+    public static abstract class ListQueryName {
+        public static final String consultarTodos = "consultarTodos";
+    }
+    
+    protected static abstract class ListQuery {
+        public static final String consultarTodos = "select e from EnderecoFornecedor e";
+    }
 }

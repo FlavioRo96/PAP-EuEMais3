@@ -1,12 +1,13 @@
 package br.com.euemais3.bo;
 
-
-
 import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
 @SequenceGenerator(name = "SALA_SEQ", sequenceName = "SALA_SEQ", initialValue = 1, allocationSize = 1)
+@NamedQueries({
+    @NamedQuery(name = Sala.ListQueryName.consultarTodos, query = Sala.ListQuery.consultarTodos)
+})
 public class Sala implements Serializable{
     private static final long serialVersionUID = -1252677403274396707L;
     
@@ -36,5 +37,13 @@ public class Sala implements Serializable{
     
     public void setId(Long id) {this.id = id;}
     public void setNome(String nome) {this.nome = nome;}
-    public void setFornecedor(Fornecedor fornecedor) {this.fornecedor = fornecedor;}    
+    public void setFornecedor(Fornecedor fornecedor) {this.fornecedor = fornecedor;}
+    
+    public static abstract class ListQueryName {
+        public static final String consultarTodos = "consultarTodos";
+    }
+    
+    protected static abstract class ListQuery {
+        public static final String consultarTodos = "select s from Sala s";
+    }
 }

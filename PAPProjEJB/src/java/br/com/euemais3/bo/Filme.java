@@ -1,13 +1,14 @@
 package br.com.euemais3.bo;
 
-
-
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Entity
 @SequenceGenerator(name = "FILME_SEQ", sequenceName = "FILME_SEQ", initialValue = 1, allocationSize = 1)
+@NamedQueries({
+    @NamedQuery(name = Filme.ListQueryName.consultarTodos, query = Filme.ListQueryName.consultarTodos)
+})
 public class Filme implements Serializable{
     private static final long serialVersionUID = 1125928869259985471L;
 
@@ -83,5 +84,12 @@ public class Filme implements Serializable{
     public void setIdioma(String idioma) {this.idioma = idioma;}
     public void setCor(String cor) {this.cor = cor;}
     public void setFormatoAudio(String formatoAudio) {this.formatoAudio = formatoAudio;}
-
+    
+    public static abstract class ListQueryName {
+        public static final String consultarTodos = "consultarTodos";
+    }
+    
+    protected static abstract class ListQuery {
+        public static final String consultarTodos = "select f from Filme f";
+    }
 }
