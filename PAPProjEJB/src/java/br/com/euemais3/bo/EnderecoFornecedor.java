@@ -1,5 +1,6 @@
 package br.com.euemais3.bo;
 
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -11,12 +12,12 @@ public class EnderecoFornecedor extends Endereco{
     private static final long serialVersionUID = 7937681050642595502L;
     
     
-    private Fornecedor fornecedor;
+    private List<Fornecedor> fornecedor;
     
     public EnderecoFornecedor() {
     }
 
-    public EnderecoFornecedor(Long id, Fornecedor fornecedor, String rua, String numero, String bairro, String complemento, String cep, String uf, String cidade) {
+    public EnderecoFornecedor(Long id, List<Fornecedor> fornecedor, String rua, String numero, String bairro, String complemento, String cep, String uf, String cidade) {
         super(id, rua, numero, bairro, complemento, cep, uf, cidade);
         this.fornecedor = fornecedor;
     }
@@ -28,9 +29,11 @@ public class EnderecoFornecedor extends Endereco{
     @Override
     public Long getId() {return super.getId();}
     
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idFornecedor")
-    public Fornecedor getFornecedor() {return fornecedor;}    
+    @ManyToMany
+    @JoinTable(name = "fornecedor_enderecofornecedor",
+            joinColumns = @JoinColumn(name = "idEnderecofornecedor"),
+            inverseJoinColumns = @JoinColumn(name = "idFornecedor"))
+    public List<Fornecedor> getFornecedor() {return fornecedor;}    
       
     @Column(nullable = false)
     @Override
@@ -59,7 +62,7 @@ public class EnderecoFornecedor extends Endereco{
     @Override
     public String getRua() {return super.getRua();}
     
-    public void setFornecedor(Fornecedor fornecedor) {this.fornecedor = fornecedor;}
+    public void setFornecedor(List<Fornecedor> fornecedor) {this.fornecedor = fornecedor;}
     
     public static abstract class ListQueryName {
         public static final String consultarTodos = "consultarTodos";

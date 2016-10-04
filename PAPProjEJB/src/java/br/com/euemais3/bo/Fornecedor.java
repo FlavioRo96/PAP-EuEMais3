@@ -10,7 +10,17 @@ import javax.persistence.*;
     @NamedQuery(name = Fornecedor.ListQueryName.consultarTodos, query = Fornecedor.ListQuery.consultarTodos)
 })
 public class Fornecedor implements Serializable{
-    private static final long serialVersionUID = 1144388379176007879L;
+    private static final long serialVersionUID = 1144388379176007879L;    
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FORNECEDOR_SEQ")
+    private Long id;
+    @Column(nullable = false)
+    private String nome;
+    @Column(nullable = false)
+    private String telefone;
+    @ManyToMany(mappedBy = "fornecedor")
+    private List<EnderecoFornecedor> enderecoFornecedor;
 
     public Fornecedor() {
     }
@@ -21,18 +31,6 @@ public class Fornecedor implements Serializable{
         this.telefone = telefone;
     }
     
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FORNECEDOR_SEQ")
-    private Long id;
-    @Column(nullable = false)
-    private String nome;
-    @Column(nullable = false)
-    private String telefone;
-    @OneToMany(mappedBy = "fornecedor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<EnderecoFornecedor> enderecoFornecedor;
-
-
     public Long getId() {return id;}
     public String getNome() {return nome;}
     public String getTelefone() {return telefone;}

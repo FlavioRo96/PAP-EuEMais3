@@ -11,26 +11,6 @@ import javax.persistence.*;
 })
 public class Filme implements Serializable{
     private static final long serialVersionUID = 1125928869259985471L;
-
-    public Filme() {
-    }
-
-    public Filme(Long id, String nome, String sinopse, Date anoProducao, String direcao, String distribuidor, Date duracao, String genero, String elenco, String nacionalidade, String idioma, String cor, String formatoAudio) {
-        this.id = id;
-        this.nome = nome;
-        this.sinopse = sinopse;
-        this.anoProducao = anoProducao;
-        this.direcao = direcao;
-        this.distribuidor = distribuidor;
-        this.duracao = duracao;
-        this.genero = genero;
-        this.elenco = elenco;
-        this.nacionalidade = nacionalidade;
-        this.idioma = idioma;
-        this.cor = cor;
-        this.formatoAudio = formatoAudio;
-    }
-    
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FILME_SEQ")
@@ -55,6 +35,24 @@ public class Filme implements Serializable{
     private String cor;
     private String formatoAudio;
     
+    public Filme() {
+    }
+
+    public Filme(Long id, String nome, String sinopse, Date anoProducao, String direcao, String distribuidor, Date duracao, String genero, String elenco, String nacionalidade, String idioma, String cor, String formatoAudio) {
+        this.id = id;
+        this.nome = nome;
+        this.sinopse = sinopse;
+        this.anoProducao = anoProducao;
+        this.direcao = direcao;
+        this.distribuidor = distribuidor;
+        this.duracao = duracao;
+        this.genero = genero;
+        this.elenco = elenco;
+        this.nacionalidade = nacionalidade;
+        this.idioma = idioma;
+        this.cor = cor;
+        this.formatoAudio = formatoAudio;
+    }    
     
     public Long getId() {return id;}
     public String getNome() {return nome;}

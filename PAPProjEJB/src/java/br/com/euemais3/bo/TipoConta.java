@@ -27,10 +27,6 @@ public class TipoConta implements Serializable{
         this.descricao = descricao;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
     public Long getId() {return id;}
     public String getTipoconta() {return tipoconta;}
     public String getDescricao() {return descricao;}
