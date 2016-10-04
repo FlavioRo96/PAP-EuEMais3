@@ -23,17 +23,17 @@ public class FilmeDAO {
         return filme;
     }
 
-    public Usuario consultarPorId(Long id) {
-        Usuario usuario = em.find(Usuario.class, id);
-        return usuario;
+    public Filme consultarPorId(Long id) {
+        Filme filme = em.find(Filme.class, id);
+        return filme;
     }
 
     public void remover(Long id) {
-        Usuario usuario = em.find(Usuario.class, id);
-        em.remove(usuario);
+        Filme filme = em.find(Filme.class, id);
+        em.remove(filme);
     }
 
-    public List<Usuario> consultarUsuarios() {
+    public List<Filme> consultarUsuarios() {
         Query q = em.createNamedQuery(Usuario.ListQueryName.consultarTodos);
         return q.getResultList();
     }
