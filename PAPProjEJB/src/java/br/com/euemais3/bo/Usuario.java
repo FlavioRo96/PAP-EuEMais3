@@ -39,7 +39,7 @@ public class Usuario implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idTipoConta")
     private TipoConta tipoDeConta;
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "usuario")
     private List<EnderecoUsuario> enderecoUsuario;
 
     public Long getId() {return id;}
@@ -64,6 +64,6 @@ public class Usuario implements Serializable{
     }
     
     protected static abstract class ListQuery {
-        public static final String consultarTodos = "select u from Usuario u";
+        public static final String consultarTodos = "select u from usuario u";
     }
 }

@@ -1,5 +1,6 @@
 package br.com.euemais3.bo;
 
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -10,12 +11,12 @@ import javax.persistence.*;
 public class EnderecoUsuario extends Endereco{
     private static final long serialVersionUID = -8403841393670819313L;
 
-    private Usuario usuario;
+    private List<Usuario> usuario;
     
     public EnderecoUsuario() {
     }
 
-    public EnderecoUsuario(Long id, Usuario usuario, String rua, String numero, String bairro, String complemento, String cep, String uf, String cidade) {
+    public EnderecoUsuario(Long id, List<Usuario> usuario, String rua, String numero, String bairro, String complemento, String cep, String uf, String cidade) {
         super(id, rua, numero, bairro, complemento, cep, uf, cidade);
         this.usuario = usuario;
     }
@@ -27,9 +28,11 @@ public class EnderecoUsuario extends Endereco{
     @Override
     public Long getId() {return super.getId();}
     
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idUsuario")
-    public Usuario getUsuario() {return usuario;}    
+    @ManyToMany
+    @JoinTable(name = "usuario_enderecousuario",
+            joinColumns = @JoinColumn(name = "idEnderecousuario"),
+            inverseJoinColumns = @JoinColumn(name = "idUsuario"))
+    public List<Usuario> getUsuario() {return usuario;}    
       
     @Column(nullable = false)
     @Override
@@ -58,7 +61,7 @@ public class EnderecoUsuario extends Endereco{
     @Override
     public String getRua() {return super.getRua();}
     
-    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
+    public void setUsuario(List<Usuario> usuario) {this.usuario = usuario;}
     
     public static abstract class ListQueryName {
         public static final String consultarTodos = "consultarTodos";
