@@ -10,3 +10,7 @@ tmp_*
 /PAPProjJPA/build/
 /PAPProjWeb/build/
 /PAPProj/build/
+/PAPProjEJB/nbproject/private/
+/PAPProjEJB/build/
+/PAPProjEJB/dist/
+~$*
