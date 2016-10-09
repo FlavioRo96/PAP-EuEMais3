@@ -28,17 +28,17 @@ public class Filme implements Serializable{
     @Temporal(TemporalType.TIME)
     private Date duracao;
     @Column(nullable = false)
-    private String genero;
-    private String elenco;
-    private String nacionalidade;
-    private String idioma;
-    private String cor;
-    private String formatoAudio;
+    private Genero genero;
+    private Elenco elenco;
+    private Nacionalidade nacionalidade;
+    private Idioma idioma;
+    private Cor cor;
+    private FormatoAudio formatoAudio;
     
     public Filme() {
     }
 
-    public Filme(Long id, String nome, String sinopse, Date anoProducao, String direcao, String distribuidor, Date duracao, String genero, String elenco, String nacionalidade, String idioma, String cor, String formatoAudio) {
+    public Filme(Long id, String nome, String sinopse, Date anoProducao, String direcao, String distribuidor, Date duracao, Genero genero, Elenco elenco, Nacionalidade nacionalidade, Idioma idioma, Cor cor, FormatoAudio formatoAudio) {
         this.id = id;
         this.nome = nome;
         this.sinopse = sinopse;
@@ -52,8 +52,8 @@ public class Filme implements Serializable{
         this.idioma = idioma;
         this.cor = cor;
         this.formatoAudio = formatoAudio;
-    }    
-    
+    }
+
     public Long getId() {return id;}
     public String getNome() {return nome;}
     public String getSinopse() {return sinopse;}
@@ -61,12 +61,12 @@ public class Filme implements Serializable{
     public String getDirecao() {return direcao;}
     public String getDistribuidor() {return distribuidor;}
     public Date getDuracao() {return duracao;}
-    public String getGenero() {return genero;}
-    public String getElenco() {return elenco;}
-    public String getNacionalidade() {return nacionalidade;}
-    public String getIdioma() {return idioma;}
-    public String getCor() {return cor;}
-    public String getFormatoAudio() {return formatoAudio;}  
+    public Genero getGenero() {return genero;}
+    public Elenco getElenco() {return elenco;}
+    public Nacionalidade getNacionalidade() {return nacionalidade;}
+    public Idioma getIdioma() {return idioma;}
+    public Cor getCor() {return cor;}
+    public FormatoAudio getFormatoAudio() {return formatoAudio;}
     
     
     public void setId(Long id) {this.id = id;}
@@ -76,12 +76,12 @@ public class Filme implements Serializable{
     public void setDirecao(String direcao) {this.direcao = direcao;}
     public void setDistribuidor(String distribuidor) {this.distribuidor = distribuidor;}
     public void setDuracao(Date duracao) {this.duracao = duracao;}
-    public void setGenero(String genero) {this.genero = genero;}
-    public void setElenco(String elenco) {this.elenco = elenco;}
-    public void setNacionalidade(String nacionalidade) {this.nacionalidade = nacionalidade;}
-    public void setIdioma(String idioma) {this.idioma = idioma;}
-    public void setCor(String cor) {this.cor = cor;}
-    public void setFormatoAudio(String formatoAudio) {this.formatoAudio = formatoAudio;}
+    public void setGenero(Genero genero) {this.genero = genero;}
+    public void setElenco(Elenco elenco) {this.elenco = elenco;}
+    public void setNacionalidade(Nacionalidade nacionalidade) {this.nacionalidade = nacionalidade;} 
+    public void setIdioma(Idioma idioma) {this.idioma = idioma;}
+    public void setCor(Cor cor) {this.cor = cor;}
+    public void setFormatoAudio(FormatoAudio formatoAudio) {this.formatoAudio = formatoAudio;}
     
     public static abstract class ListQueryName {
         public static final String consultarTodos = "consultarTodos";

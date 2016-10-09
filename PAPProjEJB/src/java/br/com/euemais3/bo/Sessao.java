@@ -19,8 +19,8 @@ public class Sessao implements Serializable{
     @JoinColumn(name = "idFilme")
     private Filme filme;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idSala")
-    private Sala sala;
+    @JoinColumn(name = "idCadeira")
+    private Cadeira cadeira;
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date data;
@@ -30,10 +30,10 @@ public class Sessao implements Serializable{
     public Sessao() {
     }
 
-    public Sessao(Long id, Filme filme, Sala sala, Date data, Double valor) {
+    public Sessao(Long id, Filme filme, Cadeira cadeira, Date data, Double valor) {
         this.id = id;
         this.filme = filme;
-        this.sala = sala;
+        this.cadeira = cadeira;
         this.data = data;
         this.valor = valor;
     }
@@ -41,14 +41,14 @@ public class Sessao implements Serializable{
     
     public Long getId() {return id;}
     public Filme getFilme() {return filme;}
-    public Sala getSala() {return sala;}
+    public Cadeira getCadeira() {return cadeira;}
     public Date getData() {return data;}
     public Double getValor() {return valor;}
     
     
     public void setId(Long id) {this.id = id;}
     public void setFilme(Filme filme) {this.filme = filme;}
-    public void setSala(Sala sala) {this.sala = sala;}
+    public void setCadeira(Cadeira cadeira) {this.cadeira = cadeira;}
     public void setData(Date data) {this.data = data;}
     public void setValor(Double valor) {this.valor = valor;}
     
