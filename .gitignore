@@ -14,3 +14,16 @@ tmp_*
 /PAPProjEJB/build/
 /PAPProjEJB/dist/
 ~$*
+/PAPProjEJBv2/nbproject/private/
+/PAPProjEJBv2/build/
+/PAPProjEJBv2/dist/
+/PAPProjEJBv3/nbproject/private/
+/PAPProjEJBv3/build/
+/PAPProjEJBv3/dist/
+/testeJPA/nbproject/private/
+/testeJPA/build/
+/MeuCinema/build/
+/MeuCinema/nbproject/private/
+/PAPProjEJB.tmp/build/
+/PAPProjEJB.tmp/dist/
+/PAPProjEJB.tmp/nbproject/private/

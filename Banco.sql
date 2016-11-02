@@ -101,7 +101,7 @@ create table usuario (
     constraint fkUsuarioTipoConta
         foreign key(idTipoConta) references tipoconta(id)
 );
-create table enderecousuario (
+create table endereco (
     id number(5) primary key,
     idUsuario number(5) not null,
     rua varchar2(40) not null,
@@ -111,22 +111,12 @@ create table enderecousuario (
     cep varchar2(8) not null,
     uf varchar2(2) not null,
     cidade varchar2(40) not null
+    
 );
 create table fornecedor (
     id number(5) primary key,
     nome varchar2(50) not null,
     telefone varchar2(14)
-);
-create table enderecofornecedor (
-    id number(5) primary key,
-    idFornecedor number(5) not null,
-    rua varchar2(40) not null,
-    numero varchar2(6) not null,
-    bairro varchar2(25) not null,
-    complemento varchar2(100),
-    cep varchar2(8) not null,
-    uf varchar2(2) not null,
-    cidade varchar2(40) not null
 );
 create table genero (
     id number(5) primary key,

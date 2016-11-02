@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="PAPProjEJBv3PU" transaction-type="JTA">
+    <jta-data-source>jdbc/papproj</jta-data-source>
+    <class>br.com.euemais3.ejbproj.ejb.bo.TipoConta</class>
+    <class>br.com.euemais3.ejbproj.ejb.bo.Fornecedor</class>
+    <class>br.com.euemais3.ejbproj.ejb.bo.Endereco</class>
+    <class>br.com.euemais3.ejbproj.ejb.bo.Filme</class>
+    <class>br.com.euemais3.ejbproj.ejb.bo.Usuario</class>
+    <class>br.com.euemais3.ejbproj.ejb.bo.Genero</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+    </properties>
+  </persistence-unit>
+</persistence>
