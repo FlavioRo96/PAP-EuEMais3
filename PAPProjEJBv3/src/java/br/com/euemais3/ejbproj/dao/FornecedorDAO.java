@@ -33,7 +33,7 @@ public class FornecedorDAO {
     }
 
     public List<Fornecedor> consultarFornecedores() {
-        Query q = em.createNamedQuery("consultarTodos.Fornecedor");
+        Query q = em.createNamedQuery("Fornecedor.consultarTodos");
         return q.getResultList();
     }
 

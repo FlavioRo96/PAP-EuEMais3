@@ -1,0 +1,214 @@
+
+
+body{
+    background: url(imagens/back-spimflex-blue-squares.jpg) repeat fixed 0 0;
+    font-size: 0.8em;
+    position: 100%;
+    
+}
+
+.header{
+    font-family: verdana;
+    width: 80%;
+    height: 70px;
+    margin-left: 10%;
+    border-radius: 30px;
+    padding: 0;
+    z-index:999;
+    position: fixed;
+    background-color: #f0f0f0;
+    /*display: table;*/
+}
+
+.logo{
+    margin-left: 10%;
+    margin-top: -13px;
+    position: absolute;
+}
+
+.menu {
+    margin-left: 40%;
+    margin-top: 3px;
+    text-align: left;
+    position: absolute;
+}
+.menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu li{
+    float: left;      
+}
+.menu li a {
+    display: block;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+}
+.menu li a:hover{
+    background-color: #e6e6e6;
+}
+
+
+.main{
+    font-family: verdana;
+    display: table;
+    width: 80%;
+    margin-left: 10%;
+    padding-bottom: 10px;
+    background-color: #f0f0f0;
+}
+
+.chamadas #cha1{
+    margin-left: 5%;
+    float: left;
+}
+
+.chamadas #cha2{
+    margin-left: 5%;
+    float: left;
+}
+
+.chamadas #cha3{
+    margin-left: 5%;
+    float: left;
+}
+.chamadas #cha4{
+    margin-left: 5%;
+    float: left;
+}
+
+.chamadas #cha5{
+    margin-left: 5%;
+    float: left;
+}
+.chamadas .titulo{
+    width: 150px;
+}
+
+.chamadas .titulo h2{ 
+    font-size: 18px;
+    text-align: center;
+}
+
+.chamadas .desc{
+    width: 150px;
+}
+
+.chamadas .desc p{
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.footer {
+    display: table;
+    width: 80%;
+    height: 300px;
+    border-style: inset;
+    align-content: center;
+    border-radius: 0% 0% 10% 10%;
+    margin: 10%;
+    margin-top: auto;
+    font-family: verdana;
+    bottom: 0px;
+    background-color: #f0f0f0;
+}
+
+.menuVert{
+    text-align: left;
+    margin-top: 16px;
+    margin-left: 20%;
+    position: absolute;
+}
+
+.menuVert ul{
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+.menuVert li a {
+    display: block;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+    padding-top: 15px;
+    text-decoration: none;
+}
+
+.menuVert li a:hover{
+    text-decoration: underline;
+}
+
+.footer h1{
+    font-size: 18px;
+    color: black;
+    position: absolute;
+    margin-top: 1%;
+    margin-left: 20%;
+}
+
+.footer h2{
+    font-size: 18px;
+    color: black;
+    position: absolute;
+    margin-top: 1%;
+    margin-left: 30%;
+}
+
+.footer h3{
+    font-size: 18px;
+    color: black;
+    position: absolute;
+    margin-top: 1%;
+    margin-left: 50%;
+}
+.footer .telefones{
+    display: block;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+    padding-top: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-left: 30%;
+    position: absolute;
+}
+
+.footer .copy{
+    display: block;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    padding-top: 8px;
+    text-decoration: none;
+    margin-top: 225px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer .redes{
+    display: block;
+    padding-top: 15px;
+    margin-top: 25px;
+    margin-left: 49.9%;
+    position: absolute;
+}
+
+.footer .redes img{
+    padding-left: 4px;
+}
+
+
+
+

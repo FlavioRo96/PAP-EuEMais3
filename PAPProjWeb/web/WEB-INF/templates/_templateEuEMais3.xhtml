@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+    <h:head>
+        <title>SpimFlex</title>
+
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>              
+        <link rel="stylesheet" href="css\w3.css"/>
+        <link rel="stylesheet" href="css\style.css"/>
+        <link rel="stylesheet" href="css\bootstrap.min.css"/>
+        <link rel="stylesheet" href="css\cagadas.css"/>
+        <link rel="stylesheet" href="css\bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="css\principal.css"/> 
+        <link id="favicon" rel="shortcut icon" href="imagens/favicon48.png" type="image/png"/>
+        <script src="js/banner.js" ></script>
+    </h:head>
+    <h:body>
+        <div class ="header">
+
+            <div class="logo">
+                <h:outputLink value="index.xhtml" >
+                    <h:graphicImage url="imagens/logo.png" />
+                    <f:ajax execute="@form"/>   
+                </h:outputLink>
+            </div>
+
+            
+                <div class="menu navbar" >
+                <h:form>
+                    <ul class="nav nav-pills">               
+                        <li class="active">
+                            <h:commandLink value="Inicio" action="#{redirecionamentoBean.index()}" >
+                                <f:ajax execute="@form"/>
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink value="Filmes" action="#{redirecionamentoBean.categoria()}" >
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink value="Cinemas" action="#{redirecionamentoBean.outroRedirecionar()}" >
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink value="Sobre" action="#{redirecionamentoBean.sobre()}" >
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink value="Contate-nos" action="#{redirecionamentoBean.outroRedirecionar()}" >
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink value="Login" action="#{redirecionamentoBean.login()}" >
+                            </h:commandLink>
+                        </li>
+                        
+                    </ul>
+                       </h:form>
+                    <section class="widget inner shopping-cart-widget">
+                        <h5 class="widget-title"><h:outputText value="Seu Carrinho"></h:outputText></h5>
+                        <div id="ProdutosCarrinho" class="products">
+
+                        </div>
+                        <p class="subtotal">
+                            <h:outputText value="Subtotal:" style="font-weight: bold;"/>
+                            <span id="valorPedido" class="focus"><h:outputText value="R$ #{redirecionamentoBean.atributo}" style="font-weight: bold;"/></span>
+                        </p>
+                      
+                            
+                                  <h:form>
+                                      <p class="buttons">
+                                <h:commandLink styleClass="btn btn-inverse viewcart" value="Ver Carrinho" action="#{redirecionamentoBean.metodo()}"/>
+                                <h:commandLink styleClass="btn btn-inverse checkout" value="Checkout→" action="#{redirecionamentoBean.metodo()}"/>
+                                    </p>
+                                  </h:form>
+                         
+                      
+                    </section>
+                     
+                </div> 
+           
+
+        </div>
+        <ui:insert name="conteudoPagina"></ui:insert>
+        <div class ="footer"> 
+
+            <h1>Menu</h1>       
+            <div class="menuVert">
+                <h:form id="menuVertical">
+                    <ul>
+                        <li><h:commandLink value="Home" action="#{redirecionamentoBean.index()}">                        
+                            </h:commandLink></li>
+                        <li><h:commandLink value="Filmes" action="#{redirecionamentoBean.categoria()}">
+                            </h:commandLink></li>
+                        <li><h:commandLink value="Cinemas" action="#{redirecionamentoBean.outroRedirecionar()}">
+                            </h:commandLink></li>
+                        <li> <h:commandLink value="Sobre" action="#{redirecionamentoBean.sobre()}" >
+                            </h:commandLink></li>
+                        <li> <h:commandLink value="Contate-nos" action="#{redirecionamentoBean.outroRedirecionar()}" >
+                            </h:commandLink></li>
+                    </ul>
+                </h:form>
+            </div>
+
+            <h2><h:outputText value="Contate-nos"/></h2>
+            <div class="telefones">
+                <u><p><h:outputText value="Telefones:"/></p></u>
+                <p><h:outputText value="Grande São Paulo: (11) 4366-5000"/></p>
+                <p><h:outputText value="Outras localidades: 0800 889 2222"/></p>      
+                <u><p><h:outputText value="Email:"/></p></u>
+                <p><h:outputText value="spimflex@hotmail.com"/></p>
+            </div>   
+
+
+
+            <div class="copy">
+                <p><h:outputText value="SpimFlex / Endereço: R. Alfeu Taváres, 149 - Rudge Ramos, São Bernardo do Campo - SP, 09641-000"/></p>
+                <p>&copy; <h:outputText value="Copyright SpimFlex - Todos os direitos reservados / Design by Euemais3"/></p>
+            </div>
+
+
+            <h3>&nbsp;&nbsp;&nbsp;<h:outputText value="Siga-nos"/></h3>
+            <div class="redes">
+                &nbsp;&nbsp;&nbsp; <h:outputLink value="http://www.facebook.com" target="_blank">
+                    <h:graphicImage url="imagens/faceLogo.png" />
+                </h:outputLink>
+                <h:outputLink value="http://www.instagram.com" target="_blank">
+                    <h:graphicImage url="imagens/instaLogo.png" />
+                </h:outputLink>
+                <h:outputLink value="http://www.twitter.com" target="_blank">
+                    <h:graphicImage url="imagens/twiLogo.png" />
+                </h:outputLink>
+            </div>          
+        </div>
+
+    </h:body>
+</html>
+

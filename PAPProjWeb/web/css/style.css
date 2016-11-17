@@ -1,0 +1,15 @@
+
+
+
+.inner {
+  background-color: #ebebeb;
+    position: fixed;
+    padding: 5px;
+    margin: 0% 100% 100% 38.9%;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 0px 0px 50px 50px;
+    -moz-background-clip: padding;
+    
+}
+

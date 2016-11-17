@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:body>
+        <ui:composition template="/WEB-INF/templates/_templateEuEMais3.xhtml">
+            <ui:define name="conteudoPagina">
+
+            <div class="main">
+             
+                <br/>                
+                <br/>
+                <br/>
+                <br/>    
+                <br/>
+                <br/>
+                <br/>
+                <p:messages id="mensagens"  style="font-size: 15px;"></p:messages>
+                <h:form class="form-signin col-md-6">
+                    <h:outputLabel class="form-signin-heading" style="margin-left: 10px;"><h4>Coloque suas informações para logar</h4></h:outputLabel>
+                    <h:outputLabel for="inputEmail" style="width: 100%; font-size: 15px; margin-left: 10px;" value="Email"></h:outputLabel>
+                    <p:inputText id="inputEmail" value="#{usuarioBean.user.usuario}" style="width: 25%;height: 30px; font-size: 15px;margin-left: 10px;" required="true" requiredMessage="O Email é obrigatório" >
+                          <f:ajax event="blur" render=":mensagens"/>
+                    </p:inputText>
+                    <p:watermark for="inputEmail" value="Seu Email Aqui"/>
+                    <h:outputLabel for="inputPassword" style="width: 100%; font-size: 15px; margin-left: 10px;" value="Senha"></h:outputLabel>
+                    <h:inputSecret id="inputPassword" value="#{usuarioBean.user.senha}" style="width: 25%;height: 30px; font-size: 15px;margin-left: 10px;margin-bottom: 10px;" required="true" requiredMessage="A senha é obrigatória" >
+                          <f:ajax event="blur" render=":mensagens"/>
+                    </h:inputSecret>
+                    <p:watermark for="inputPassword" value="Digitar senha"/>
+                    <br/>
+                    <p:commandButton class="btn btn-lg btn-primary" style="margin-left: 10px;" action="#{usuarioBean.logar()}" value="Entre"></p:commandButton>
+      
+                </h:form>
+        </div>
+            </ui:define>
+            </ui:composition>
+    </h:body>
+</html>
+
+
+
+

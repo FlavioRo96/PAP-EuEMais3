@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @SequenceGenerator(name = "FORNECEDOR_SEQ", sequenceName = "FORNECEDOR_SEQ", initialValue = 1, allocationSize = 1)
 @NamedQueries({
-    @NamedQuery(name = "consultarTodos.Fornecedor", query = "select f from Fornecedor f")
+    @NamedQuery(name = "Fornecedor.consultarTodos", query = "select f from Fornecedor f")
 })
 public class Fornecedor implements Serializable{
     private static final long serialVersionUID = 1144388379176007879L;    
